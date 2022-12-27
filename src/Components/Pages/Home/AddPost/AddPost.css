@@ -1,0 +1,23 @@
+#file-style[type="file"] {
+    /* Style the color of the message that says 'No file chosen' */
+    color: #1d2025;
+}
+
+#file-style[type="file"]::-webkit-file-upload-button {
+    background: #1d2025;
+    border: 2px solid #1d2025;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    outline: none;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    transition: all 1s ease;
+}
+
+#file-style[type="file"]::-webkit-file-upload-button:hover {
+    background: #fff;
+    border: 2px solid #535353;
+    color: #000;
+}
