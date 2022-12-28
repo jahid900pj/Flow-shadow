@@ -5,6 +5,7 @@ import img2 from './task-img-3.webp'
 import img3 from './task-4 2022-12-27 150102.png'
 import { RouterProvider } from 'react-router-dom';
 import { router } from './Routes/Routes/Routes';
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       {/* #1d2025 */}
       {/* #d8d7d9 */}
       <RouterProvider router={router}></RouterProvider>
+      <Toaster />
     </div>
   );
 }

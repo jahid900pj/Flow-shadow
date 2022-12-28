@@ -5,7 +5,7 @@ const AddPost = () => {
     return (
         <div>
             <div className="hero min-h-screen-[50%] lg:min-h-screen bg-base-200">
-                <div className=" w-full hero-content flex-col lg:flex-row-reverse">
+                <div className=" w-full hero-content">
                     <div className="card flex-shrink-0 w-full lg:w-[600px] shadow-2xl bg-base-100">
                         <div className="card-body">
                             <div className="form-control">
