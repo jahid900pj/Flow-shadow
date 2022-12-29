@@ -47,22 +47,7 @@ const AddPost = () => {
                 }
             })
 
-        // console.log(postData)
-        // fetch(`http://localhost:5000/post`, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(postData)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.acknowledged) {
-        //             toast.success('hallo')
-        //             reset()
-        //         }
-        //     })
-        //     .catch(error => console.log(error))
+
     }
     return (
         <div>

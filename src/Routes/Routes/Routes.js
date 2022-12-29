@@ -3,6 +3,7 @@ import Login from "../../Components/Pages/Form/Login/Login";
 import Register from "../../Components/Pages/Form/Register/Register";
 import Home from "../../Components/Pages/Home/Home/Home";
 import PostCards from "../../Components/Pages/Media/PostCards/PostCards";
+import PostDetails from "../../Components/Pages/Media/PostDetails/PostDetails";
 import Main from "../../Layout/Main";
 
 export const router = createBrowserRouter([
@@ -13,6 +14,10 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/media', element: <PostCards></PostCards>
+            },
+            {
+                path: '/post/:id', element: <PostDetails></PostDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/post/${params.id}`)
             },
             {
                 path: '/register', element: <Register></Register>
