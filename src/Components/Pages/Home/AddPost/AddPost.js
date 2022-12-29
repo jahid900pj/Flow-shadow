@@ -6,27 +6,63 @@ import './AddPost.css'
 
 const AddPost = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const imgHostingKey = process.env.REACT_APP_imgbb_key;
+    // console.log(imgHostingKey)
 
     const handleAddPost = (data) => {
-        const postData = {
-            message: data.message
-        }
-        console.log(postData)
-        fetch(`http://localhost:5000/post`, {
+        // console.log(data.image[0])
+        const image = data.image[0]
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`
+        fetch(url, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(postData)
+            body: formData
         })
             .then(res => res.json())
-            .then(data => {
-                if (data.acknowledged) {
-                    toast.success('hallo')
-                    reset()
+            .then(formData => {
+                // console.log(formData)
+                if (formData.success) {
+                    console.log(formData.data.url)
+                    const postData = {
+                        message: data.message,
+                        image: formData.data.url
+                    }
+
+                    fetch(`http://localhost:5000/post`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(postData)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.acknowledged) {
+                                toast.success('hallo')
+                                reset()
+                            }
+                        })
+                        .catch(error => console.log(error))
                 }
             })
-            .catch(error => console.log(error))
+
+        // console.log(postData)
+        // fetch(`http://localhost:5000/post`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(postData)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data.acknowledged) {
+        //             toast.success('hallo')
+        //             reset()
+        //         }
+        //     })
+        //     .catch(error => console.log(error))
     }
     return (
         <div>
