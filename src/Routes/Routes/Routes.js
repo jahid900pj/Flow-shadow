@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/post/:id', element: <PostDetails></PostDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/post/${params.id}`)
+                loader: ({ params }) => fetch(`https://shadow-server.vercel.app/post/${params.id}`)
             },
             {
                 path: '/register', element: <Register></Register>

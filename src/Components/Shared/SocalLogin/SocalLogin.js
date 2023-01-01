@@ -14,6 +14,7 @@ const SocalLogin = () => {
             .catch(err => {
                 console.log(err)
             })
+
     }
 
     return (

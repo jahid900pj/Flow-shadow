@@ -29,7 +29,7 @@ const AddPost = () => {
                         image: formData.data.url
                     }
 
-                    fetch(`http://localhost:5000/post`, {
+                    fetch(`https://shadow-server.vercel.app/post`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
